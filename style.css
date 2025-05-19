@@ -1,11 +1,149 @@
-html {background:rgb(148, 212, 199)}
-h1 {color:rgb(0, 0, 0);}
-h3 {color: rgb(122, 48, 241);}
-h2 {color: rgb(134, 24, 101);}
-h4 {border-inline-start-style: hidden;}
-li {color: rgb(0, 0, 0);}
-hr {border-style: double;}
-hr {color: rgb(72, 173, 106);}
-h3 {background-color: #80c9cc;}
-img {border-style:outset}
-ul {color: rgb(199, 56, 56);}
+/* style.css */
+
+/* CSS Variables for easy theming */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --accent-color: #e74c3c;
+    --font-family:var(--font-family)
+}
+
+/* Reset and Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Sections */
+section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+ul ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+/* Work Experience */
+#experience li h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+#experience li p {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+/* Skills and Hobbies */
+#skills p a,
+#hobbies ul li {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+#skills p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    main {
+        padding: 0 0.5rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+}
