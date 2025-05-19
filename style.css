@@ -1,6 +1,11 @@
 html {background:rgb(148, 212, 199)}
-h1 {color:rgb(52, 21, 139);}
-h3 {color: rgb(170, 12, 72);}
+h1 {color:rgb(0, 0, 0);}
+h3 {color: rgb(122, 48, 241);}
 h2 {color: rgb(134, 24, 101);}
 h4 {border-inline-start-style: hidden;}
 li {color: rgb(0, 0, 0);}
+hr {border-style: double;}
+hr {color: rgb(72, 173, 106);}
+h3 {background-color: #80c9cc;}
+img {border-style:outset}
+ul {color: rgb(199, 56, 56);}
