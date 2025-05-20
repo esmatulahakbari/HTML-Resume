@@ -121,10 +121,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', toggleBackToTop);
 
-    // Contact Form (Optional)
-    // script.js (partial update for contact form)
+// script.js (partial update)
 
-// ... (keep all other code from the previous script.js, including debounce, smooth scrolling, active link highlighting, etc.)
+// ... (keep debounce, DOMContentLoaded, smooth scrolling, etc.)
+
+// Active Link Highlighting
+try {
+    const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href').toLowerCase();
+        const isHome = (currentPath === '' || currentPath === 'index.html' || currentPath === '/') && 
+                       (linkPath === 'index.html' || linkPath === '/');
+        const isActive = isHome || linkPath === currentPath;
+        link.setAttribute('aria-current', isActive ? 'page' : 'false');
+        if (isActive) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+} catch (err) {
+    console.error('Error in active link highlighting:', err);
+}
 
 // Contact Form
 const contactForm = document.querySelector('#contact-form');
@@ -167,6 +186,8 @@ if (contactForm) {
         }
     });
 }
+
+// ... (keep showNotification, star ratings, lazy loading, etc.)
 
 // ... (keep the rest of the script: showNotification, star ratings, lazy loading, etc.)
 
@@ -225,5 +246,21 @@ if (contactForm) {
                 imageObserver.observe(img);
             }
         });
+    }
+});document.getElementById('contact-form').addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    if (!name || !email || !message) {
+        event.preventDefault();
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        event.preventDefault();
+        alert('Please enter a valid email address.');
     }
 });
